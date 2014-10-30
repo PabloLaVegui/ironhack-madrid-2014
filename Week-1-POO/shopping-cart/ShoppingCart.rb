@@ -3,6 +3,7 @@ require './Item_Counter'
 require './Apples_Discount'
 require './Oranges_Discount'
 require './Grapes_Discount'
+require './Cost_Calculator'
 
 class ShopingCart
 
@@ -16,32 +17,8 @@ class ShopingCart
     @item_counter.add article
   end
 
-  def cost
-    num_apples     = @item_counter.counter[:apples]
-    num_oranges    = @item_counter.counter[:oranges]
-    num_grapes     = @item_counter.counter[:grapes]
-    num_banana     = @item_counter.counter[:banana]
-    num_watermelon = @item_counter.counter[:watermelon]
-
-    @cost += num_apples      * @price_list.price(:apples)
-    @cost += num_oranges     * @price_list.price(:oranges)
-    @cost += num_grapes      * @price_list.price(:grapes)
-    @cost += num_banana      * @price_list.price(:banana)
-    @cost += num_watermelon  * @price_list.price(:watermelon)
-
-    if num_apples >= 2
-      @cost -= Apples_Discount.new.discounter(num_apples, @price_list)
-    end
-
-    if num_oranges >= 3
-      @cost -= Oranges_Discount.new.discounter(num_oranges, @price_list)
-    end
-
-    if num_grapes >= 4 && num_banana > 0
-      @cost -= Grapes_Discount.new.discounter(num_grapes, @price_list, num_banana)
-    end
-
-    @cost
+  def total_amount
+    @cost = Cost_Calculator.new(@item_counter.counter, @price_list).total
   end
 
 end
@@ -73,4 +50,4 @@ cart.add :grapes
 cart.add :grapes
 cart.add :grapes
 
-puts cart.cost
+puts cart.total_amount
