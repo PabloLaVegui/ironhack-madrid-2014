@@ -6,6 +6,7 @@ class Keynote
 
   def initialize
     @slides
+
     @actual_slide = 0
     @slide_view   = Slide_Print.new
     @console      = Keynote_Console.new
@@ -31,15 +32,15 @@ class Keynote
     end_app = false
 
     case command
-    when 'next'
-      @actual_slide += 1
+      when 'next'
+        @actual_slide += 1 if @actual_slide < @slides.length - 1
 
-    when 'previous'
-      @actual_slide -= 1
+      when 'previous'
+        @actual_slide -= 1 if @actual_slide > 0
 
-    when 'quit'
-      puts "Bye!"
-      end_app = true
+      when 'exit'
+        puts "Bye!"
+        end_app = true
     end
 
     unless end_app
