@@ -1,10 +1,12 @@
 require './File_Read'
 require './Slide_Print'
+require './Keynote_Console'
 
 class Keynote
 
   def initialize
     @slides
+    @console = Keynote_Console.new
     @actual_slide = 0
   end
 
@@ -14,37 +16,39 @@ class Keynote
 
   def start
     @actual_slide = 0
-    view_actual_slide
+    print_screen @slides[0]
   end
 
-  def next
-    @actual_slide += 1
-    unless @actual_slide > @slides.size - 1
-      view_actual_slide
+  # TODO: Clase slide??
+  def print_screen slide
+    Slide_Print.new(slide)
+    @console.view
+    gest @console.command
+  end
+
+  def gest command
+    case command
+
+    when 'next'
+      @actual_slide += 1
+      print_screen @slides[@actual_slide]
+
+    when 'previous'
+      @actual_slide -= 1
+      print_screen @slides[@actual_slide]
+
+    when 'quit'
+
     else
-      @actual_slide = @slides.size - 1
+      #TODO: Print en otra clase
+      puts 'Bad command!!'
+      print_screen @slides[@actual_slide]
     end
   end
 
-  def previous
-    @actual_slide -= 1
-    unless @actual_slide < 0
-      view_actual_slide
-    else
-      @actual_slide = 0
-    end
-  end
-
-  def view_actual_slide
-    #puts @slides[@actual_slide]
-    screen = Slide_Print.new(@slides[@actual_slide])
-    screen.show
-  end
 
 end
 
 keynote = Keynote.new
 keynote.load_keynote_file 'slides.txt'
 keynote.start
-6.times{ keynote.next }
-keynote.previous
