@@ -7,7 +7,7 @@ class Keynote_Console
   end
 
   def view
-    print ": next, previous, exit >"
+    print ": auto, next, previous, exit >"
     @command = gets.chomp
   end
 

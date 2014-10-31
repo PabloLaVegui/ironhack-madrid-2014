@@ -19,32 +19,45 @@ class Keynote
 
   def start
     @actual_slide = 0
-    print_screen @slides[0]
+    print_screen
   end
 
-  def print_screen slide
+  def print_screen
     @slide_view.show_center(@slides[@actual_slide])
     @console.view
     gest @console.command
+  end
+
+  def print_screen_auto_mode
+    @slide_view.show_center_with_bottom_message(@slides[@actual_slide])
   end
 
   def gest command
     end_app = false
 
     case command
-      when 'next'
-        @actual_slide += 1 if @actual_slide < @slides.length - 1
+    when 'next'
+      @actual_slide += 1 if @actual_slide < @slides.length - 1
 
-      when 'previous'
-        @actual_slide -= 1 if @actual_slide > 0
+    when 'previous'
+      @actual_slide -= 1 if @actual_slide > 0
 
-      when 'exit'
-        puts "Bye!"
-        end_app = true
+    when 'exit'
+      puts "bye!"
+      end_app = true
+
+    when 'auto'
+      while @actual_slide < @slides.length
+        print_screen_auto_mode
+        sleep(2)
+        @actual_slide += 1
+      end
+      @actual_slide -= 1
+
     end
 
     unless end_app
-      print_screen @slides[@actual_slide]
+      print_screen
     end
   end
 
