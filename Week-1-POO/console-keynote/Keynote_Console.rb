@@ -9,7 +9,6 @@ class Keynote_Console
   def view
     puts "..next, previous >"
     @command = gets.chomp
-    # TODO: Comprobar que se puede quitar
   end
 
 end

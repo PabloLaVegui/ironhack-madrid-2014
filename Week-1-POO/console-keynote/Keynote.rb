@@ -6,11 +6,13 @@ class Keynote
 
   def initialize
     @slides
-    @console = Keynote_Console.new
     @actual_slide = 0
+    @slide_view   = Slide_Print.new
+    @console      = Keynote_Console.new
+
   end
 
-  def load_keynote_file name
+  def load_file name
     @slides = File_Read.new(name).slides
   end
 
@@ -19,36 +21,35 @@ class Keynote
     print_screen @slides[0]
   end
 
-  # TODO: Clase slide??
   def print_screen slide
-    Slide_Print.new(slide)
+    @slide_view.show(@slides[@actual_slide])
     @console.view
     gest @console.command
   end
 
   def gest command
-    case command
+    end_app = false
 
+    case command
     when 'next'
       @actual_slide += 1
-      print_screen @slides[@actual_slide]
 
     when 'previous'
       @actual_slide -= 1
-      print_screen @slides[@actual_slide]
 
     when 'quit'
+      puts "Bye!"
+      end_app = true
+    end
 
-    else
-      #TODO: Print en otra clase
-      puts 'Bad command!!'
+    unless end_app
       print_screen @slides[@actual_slide]
     end
   end
 
-
 end
 
+
 keynote = Keynote.new
-keynote.load_keynote_file 'slides.txt'
+keynote.load_file 'slides.txt'
 keynote.start

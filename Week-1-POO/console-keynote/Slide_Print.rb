@@ -1,15 +1,10 @@
-require './Keynote_Console'
-
 class Slide_Print
 
-  def initialize slide
-    @slide   = slide
-    show
+  def initialize
   end
 
-  def show
-    puts @slide
-    puts @console
+  def show slide
+    puts slide
   end
 
 end
