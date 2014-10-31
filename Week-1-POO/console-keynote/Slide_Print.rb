@@ -15,9 +15,6 @@ class Slide_Print
   end
 
   def show_center_with_bottom_message slide
-    #print_blank @height / 2
-    #puts slide.center(@width)
-    #print_blank @height / 2
     show_center slide
     puts "MODE: AUTO"
   end
