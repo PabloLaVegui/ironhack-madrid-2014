@@ -23,7 +23,7 @@ class Keynote
   end
 
   def print_screen slide
-    @slide_view.show(@slides[@actual_slide])
+    @slide_view.show_center(@slides[@actual_slide])
     @console.view
     gest @console.command
   end
