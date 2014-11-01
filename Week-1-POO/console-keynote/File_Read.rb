@@ -8,23 +8,34 @@ class File_Read
   end
 
   def slides
+    lines_to_slides(read_lines)
+  end
+
+  def read_lines
+    lines = []
+
     File.open(@name) do |f|
-
-      lines_for_slide = []
       while line = f.gets
+        lines.push(line)
+      end
+    end
 
-        if line.chomp == '----'
+    lines
+  end
+
+  def lines_to_slides lines
+    lines_for_slide = []
+
+    lines.each do |l|
+      if l.chomp == '----'
           @all_slides.push(Slide.new(lines_for_slide))
           lines_for_slide = []
-        else
-          lines_for_slide.push(line.chomp)
-        end
-
+      else
+          lines_for_slide.push(l.chomp)
       end
-      @all_slides.push(Slide.new(lines_for_slide))
-
     end
-    @all_slides
+
+    @all_slides.push(Slide.new(lines_for_slide))
   end
 
 end
