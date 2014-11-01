@@ -21,7 +21,6 @@ class Calculate_Employee_Payroll
 
   def notificate_payroll_to_all
     @employees.each do |e|
-      #message = Message.new("You have money!!!", e.contact_data)
       message = Message.new(e.contact_data)
       message.send
       puts "Send message to " + e.name + " via " + message.type

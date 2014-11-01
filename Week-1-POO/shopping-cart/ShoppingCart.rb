@@ -22,32 +22,3 @@ class ShopingCart
   end
 
 end
-
-
-cart = ShopingCart.new
-
-cart.add :apples
-cart.add :apples
-
-cart.add :banana
-
-cart.add :oranges
-cart.add :oranges
-cart.add :oranges
-cart.add :oranges
-cart.add :oranges
-
-cart.add :grapes
-cart.add :grapes
-cart.add :grapes
-cart.add :grapes
-#90
-
-cart.add :grapes
-
-cart.add :grapes
-cart.add :grapes
-cart.add :grapes
-cart.add :grapes
-
-puts cart.total_amount

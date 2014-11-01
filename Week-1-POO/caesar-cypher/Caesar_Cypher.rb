@@ -21,8 +21,7 @@ class Caesar_Cypher
 
   def cipherDeco
     newString = ""
-    (0...@string.length).each do |i|
-    #string.each_char
+    @string.each_char do |i|
       ascii = @string[i].ord - 3
       if ascii < 97
         ascii += 26

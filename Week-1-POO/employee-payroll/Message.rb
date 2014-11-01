@@ -41,10 +41,7 @@ class Message
   end
 
   def send
-    # depend of type
-    #message = Twitter_Message.new
-    #message.send(@message, @contact_data)
-    #...
+    # TODO
   end
 
 end
