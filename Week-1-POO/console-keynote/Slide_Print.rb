@@ -9,9 +9,15 @@ class Slide_Print
   end
 
   def show_center slide
-    print_blank @height / 2
-    puts slide.center(@width)
-    print_blank @height / 2
+    slide_lines = slide.lines.count
+
+    print_blank (@height - slide_lines) / 2
+
+    slide.lines.each do |l|
+      puts l.center(@width)
+    end
+
+    print_blank (@height - slide_lines) / 2
   end
 
   def show_center_with_bottom_message slide
