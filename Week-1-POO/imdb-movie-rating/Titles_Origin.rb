@@ -4,7 +4,13 @@ class Titles_Origin
 
   def initialize
     @titles = [
-      "Ghostbusters"
+      "Ghostbusters",
+      "Die Hard",
+      "The Godfather",
+      "Home alone",
+      "Stark trek, the new generation",
+      "The night of the living dead",
+      "Titanic"
     ]
   end
 
