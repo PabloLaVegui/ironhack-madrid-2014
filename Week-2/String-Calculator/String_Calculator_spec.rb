@@ -30,10 +30,6 @@ RSpec.describe "String calculator" do
     expect(calculator.add("1,2\n3")).to eq(6)
   end
 
-  it "error whit two separators together" do
-    expect(calculator.add("1,2,\n")).to eq(0)
-  end
-
   it "supporneat diferent delimiters" do
     expect(calculator.add("//;\n1;2")).to eq(3)
   end
@@ -41,5 +37,12 @@ RSpec.describe "String calculator" do
   it "supporneat diferent delimiters with one digit" do
     expect(calculator.add("//;\n3")).to eq(3)
   end
+
+  #it "negative valors" do
+    #expect(calculator.add("4,-3")).to eq(1)
+  #end
+  #it "negative valors" do
+    #expect(calculator.add("4,-3")).to raise_error "Negative numbers NO!"
+  #end
 
 end

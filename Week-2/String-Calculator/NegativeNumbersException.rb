@@ -1,0 +1,2 @@
+class NegativeNumberException < StandardError
+end
