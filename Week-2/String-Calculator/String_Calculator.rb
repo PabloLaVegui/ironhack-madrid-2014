@@ -6,7 +6,7 @@ class String_Calculator
     if string.length == 1
       result = string.to_i
     else
-      terms = string.split(",")
+      terms = generate_terms_array(string)
       terms.each do |c|
         result += c.to_i
       end
@@ -14,22 +14,19 @@ class String_Calculator
 
     result
   end
-end
 
+  def generate_terms_array string
+    if string.include?(",\n")
+      arr = [0]
+    elsif string[0..1] == "//"
+      split_char = string[2]
+      string = string[4..-1]
+      arr = string.split(split_char)
+    else
+      string.gsub!("\n", ",")
+      arr = string.split(",")
+    end
 
-
-if String_Calculator.new.add("") != 0
-  puts "ERROR! It cannot add an empty string"
-end
-
-if String_Calculator.new.add("2") != 2
-  puts "ERROR! Cannot add a single number"
-end
-
-if String_Calculator.new.add("1,2") != 3
-  puts "ERROR! Cannot add two numbers"
-end
-
-if String_Calculator.new.add("1,2,3") != 3
-  puts "ERROR! Cannot add three numbers"
+    arr
+  end
 end
