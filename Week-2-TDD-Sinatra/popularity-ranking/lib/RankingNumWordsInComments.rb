@@ -6,14 +6,10 @@ class RankingNumWordsInComments
   end
 
   def sorted_elements
-    most_words_elem = nil
-    max_words = 0
-
-    @elements.number_of_comments.each do |e|
-      words_in_comment = 0
-      
-
-    end
+    ordered_elements = @elements.sort { |a, b|
+      b.total_words_in_comments <=> a.total_words_in_comments
+    }
+    ordered_elements
   end
 
 end

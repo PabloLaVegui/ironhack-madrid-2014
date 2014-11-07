@@ -11,4 +11,5 @@ class RankingALetterInName
     }
     ordered_elements
   end
+
 end
