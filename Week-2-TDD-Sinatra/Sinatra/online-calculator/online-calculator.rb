@@ -1,6 +1,5 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
-require 'pry'
 require './OnlineCalculator'
 
 set :port, 3001
@@ -11,7 +10,6 @@ get '/' do
 end
 
 post '/result' do
-  #binding.pry
   @result = OnlineCalculator.new.operate(params)
   erb :result
 end
