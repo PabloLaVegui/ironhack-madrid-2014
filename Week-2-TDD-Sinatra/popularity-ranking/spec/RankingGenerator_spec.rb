@@ -24,8 +24,6 @@ RSpec.describe "Places Popularity Ranking (RankingGenerator class)" do
                                             :comments                => [comment_1, comment_2],
                                             :total_words_in_comments => 6) }
 
-  # TODO: "change method name number_of_comments to comments"
-
   let(:ranking_num_of_visits)            { RankingNumVisits.new([place_1, place_2, place_3]) }
   let(:ranking_num_of_comments)          { RankingNumComments.new([place_1, place_2, place_3]) }
   let(:ranking_num_of_a_letter)          { RankingALetterInName.new([place_1, place_2, place_3]) }
