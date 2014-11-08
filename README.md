@@ -1,4 +1,6 @@
-![alt text][logo]
+<div align="center">
+  ![alt text][logo]
+</div>
 
 Ironhack Bootcamp Madrid 2014
 =============================
