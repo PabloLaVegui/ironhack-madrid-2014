@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movie Game</title>
+</head>
+<body>
+
+  <h2>Which one was filmed in <%= @year_to_ask %></h2>
+  <h3>Click in correct poster</h3>
+  <% @movies.each do |m| %>
+    <img src=<%= m[:poster] %> onclick=<%= m[:js] %> width="150px" height="200px">
+  <% end %>
+
+</body>
+</html>
