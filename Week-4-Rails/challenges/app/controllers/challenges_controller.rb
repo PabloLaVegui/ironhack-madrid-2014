@@ -15,6 +15,14 @@ class ChallengesController < ApplicationController
     render 'new'
   end
 
+  def index
+    @challenges = Challenge.order(created_at: :desc)
+  end
+
+  def show
+    @challenge = Challenge.find params[:id]
+  end
+
 
 
   private
