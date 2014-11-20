@@ -11,7 +11,6 @@ class ChallengesController < ApplicationController
     else
       flash.now[:error] = "Error on save!, challenge not saved"
     end
-    #TODO: Corrregir redirecc
     render 'new'
   end
 
@@ -24,16 +23,22 @@ class ChallengesController < ApplicationController
   end
 
   def edit
-    @challenge = Project.find params[:id]
+    @challenge = Challenge.find params[:id]
   end
 
   def update
-    if @challenge.save
+    @challenge = Challenge.find params[:id]
+    if @challenge.update_attributes challenge_params
       flash.now[:notice] = "Challenge updated!"
     else
       flash.now[:error] = "Error on update!, challenge not saved"
     end
-    #TODO: Corrregir redirecc
+    redirect_to '/challenges'
+  end
+
+  def destroy
+    Challenge.find(params[:id]).destroy
+    redirect_to '/challenges'
   end
 
 
