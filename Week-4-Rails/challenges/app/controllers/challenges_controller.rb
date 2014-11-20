@@ -15,11 +15,13 @@ class ChallengesController < ApplicationController
   end
 
   def index
-    @challenges = Challenge.order(created_at: :desc)
+    @challenges = Challenge.where("name like ?", str_to_search(params[:q])).order(created_at: :desc)
   end
 
   def show
     @challenge = Challenge.find params[:id]
+    @vote      = @challenge.votes.new
+    @num_votes = Vote.num_of_votes(params[:id])
   end
 
   def edit
@@ -47,6 +49,11 @@ class ChallengesController < ApplicationController
 
   def challenge_params
     params.require(:challenge).permit(:name, :description)
+  end
+
+  def str_to_search str
+    search = params[:q] || ""
+    '%' + search + '%'
   end
 
 end

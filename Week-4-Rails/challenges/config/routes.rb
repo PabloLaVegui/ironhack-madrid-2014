@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :challenges
+  resources :challenges do
+    resources :votes
+  end
 
   get '/', to: 'site#home', as: "home"
 
