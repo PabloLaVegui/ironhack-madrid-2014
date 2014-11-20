@@ -23,6 +23,19 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.find params[:id]
   end
 
+  def edit
+    @challenge = Project.find params[:id]
+  end
+
+  def update
+    if @challenge.save
+      flash.now[:notice] = "Challenge updated!"
+    else
+      flash.now[:error] = "Error on update!, challenge not saved"
+    end
+    #TODO: Corrregir redirecc
+  end
+
 
 
   private

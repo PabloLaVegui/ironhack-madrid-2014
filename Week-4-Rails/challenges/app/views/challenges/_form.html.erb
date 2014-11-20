@@ -1,0 +1,21 @@
+<%= flash_message %>
+
+<% if @challenge.errors.any? %>
+  <ul>
+    <% @challenge.errors.full_messages.each do |err_msg| %>
+      <li><%= err_msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for [@challenge] do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.submit 'Save challenge!' %>
+
+<% end %>

@@ -2,6 +2,6 @@ Rails.application.routes.draw do
 
   resources :challenges
 
-  get '/' => 'site#home'
+  get '/', to: 'site#home', as: "home"
 
 end

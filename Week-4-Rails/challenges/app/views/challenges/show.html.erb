@@ -1,6 +1,7 @@
+<%= link_to "Challenges list", challenges_path %>
+<%= link_to "Add challenge", new_challenge_path %>
+
 <h3><%= @challenge.name %></h3>
 <p><%= @challenge.description %></p>
 <h5>Date of creation: <%= @challenge.created_at %></h5>
 
-<%= link_to "Challenges list", challenges_path %>
-<%= link_to "Add challenge", new_challenge_path %>
