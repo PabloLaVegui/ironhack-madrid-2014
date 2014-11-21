@@ -1,14 +1,17 @@
 <%= link_to "Challenges list", challenges_path %>
 <%= link_to "+Add challenge", new_challenge_path %>
 
-<h3><%= @challenge.name %></h3>
-<p><%= @challenge.description %></p>
+<h3><%= truncate(@challenge.name, length: 20) %></h3>
+<p><%= simple_format(@challenge.description) %></p>
 <h5>Date of creation: <%= @challenge.created_at %></h5>
 
 <%= link_to "Edit", edit_challenge_path %>
-<%= link_to "Delete", challenge_path(@challenge), method: :delete, data: {confirm: 'Are you sure?'} %>
+<%= link_to "Delete", challenge_path(@challenge), 
+  method: :delete, 
+  data: {confirm: 'Are you sure?'} 
+%>
 
-<p>Votes: <%= @num_votes %></p>
+<p><%= pluralize(@num_votes, 'vote', 'votes')%></p>
 <%= flash_message %>
 <%= form_for [@challenge, @vote] do |f| %>
 

@@ -1,4 +1,7 @@
 class ChallengesController < ApplicationController
+  # TODO: .gitignore (bd, gemas)
+
+  before_filter :load_challenge, only: [:show, :update, :edit, :destroy]
 
   def new
     @challenge = Challenge.new
@@ -8,28 +11,28 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.new challenge_params
     if @challenge.save
       flash.now[:notice] = "Challenge saved!"
+      redirect_to challenges_path
     else
       flash.now[:error] = "Error on save!, challenge not saved"
+      render 'new'
     end
-    render 'new'
   end
 
   def index
-    @challenges = Challenge.where("name like ?", str_to_search(params[:q])).order(created_at: :desc)
+    # TODO: método de clase en el modelo
+    @challenges = Challenge.where("name ilike ?", 
+                                str_to_search(params[:q])).order(created_at: :desc)
   end
 
   def show
-    @challenge = Challenge.find params[:id]
     @vote      = @challenge.votes.new
     @num_votes = Vote.num_of_votes(params[:id])
   end
 
   def edit
-    @challenge = Challenge.find params[:id]
   end
 
   def update
-    @challenge = Challenge.find params[:id]
     if @challenge.update_attributes challenge_params
       flash.now[:notice] = "Challenge updated!"
     else
@@ -39,13 +42,17 @@ class ChallengesController < ApplicationController
   end
 
   def destroy
-    Challenge.find(params[:id]).destroy
-    redirect_to '/challenges'
+    @challenge.destroy
+    redirect_to '/challenges', notice: 'Challenge deleted correct'
   end
 
 
 
   private
+
+  def load_challenge
+    @challenge = Challenge.find params[:id]
+  end
 
   def challenge_params
     params.require(:challenge).permit(:name, :description)
@@ -53,7 +60,7 @@ class ChallengesController < ApplicationController
 
   def str_to_search str
     search = params[:q] || ""
-    '%' + search + '%'
+    "%#{search}%"
   end
 
 end
