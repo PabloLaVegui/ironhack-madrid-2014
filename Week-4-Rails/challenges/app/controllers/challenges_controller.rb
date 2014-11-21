@@ -3,6 +3,9 @@ class ChallengesController < ApplicationController
 
   before_filter :load_challenge, only: [:show, :update, :edit, :destroy]
 
+  PER_PAGE = 10
+
+
   def new
     @challenge = Challenge.new
   end
@@ -19,9 +22,21 @@ class ChallengesController < ApplicationController
   end
 
   def index
-    # TODO: método de clase en el modelo
-    @challenges = Challenge.where("name ilike ?", 
-                                str_to_search(params[:q])).order(created_at: :desc)
+    # TODO: Método en modelo
+    # @challenges = paginate(params[:page])
+    # constante en el modelo tambien
+    if params[:page]
+      @page = params[:page].to_i
+      offset = (@page - 1) * 10
+    else
+      @page = 1
+      offset = 0
+    end
+
+    # TODO: método de clase en el model
+    @challenges = Challenge.where("name ilike ?",
+                                  str_to_search(params[:q])).order(created_at: :desc).limit(PER_PAGE).offset(offset)
+
   end
 
   def show

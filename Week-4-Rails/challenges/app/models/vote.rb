@@ -8,6 +8,4 @@ class Vote < ActiveRecord::Base
     Vote.where(challenge_id: challenge_id).count
   end
 
-
-
 end

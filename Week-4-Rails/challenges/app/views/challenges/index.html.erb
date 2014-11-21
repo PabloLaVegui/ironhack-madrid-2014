@@ -21,3 +21,11 @@
   <% end %>
 
 </table>
+
+<% if previus_page? %>
+  <%= link_to('<Prev', challenges_path(page: @page - 1)) %>
+<% end %>
+
+<% if next_page? %>
+  <%= link_to('Next>', challenges_path(page: @page + 1)) %>
+<% end %>

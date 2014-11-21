@@ -8,6 +8,19 @@ module ApplicationHelper
     end
   end
 
+  def previus_page?
+    params[:page].present? && params[:page].to_i > 1
+  end
+
+  def next_page?
+    current_page = params[:page].to_i
+    # except: desconcatenar
+    total = @challenges.except(:limit).except(:offset).count
+    total_pages = (total / 10) + 1
+
+    current_page < total_pages
+  end
+
 
 
   private
