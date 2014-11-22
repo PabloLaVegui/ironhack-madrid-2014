@@ -22,31 +22,18 @@ class ChallengesController < ApplicationController
   end
 
   def index
-    # TODO: Método en modelo
-    # @challenges = paginate(params[:page])
-    # constante en el modelo tambien
-    # Mucho mejor con gema
-    #if params[:page]
-      #@page = params[:page].to_i
-      #offset = (@page - 1) * 10
-    #else
-      #@page = 1
-      #offset = 0
-    #end
-
-    # TODO: método de clase en el model
-    #@challenges = Challenge.where("name ilike ?", str_to_search(params[:q])).
-      #order(created_at: :desc).limit(PER_PAGE).offset(offset)
     @challenges = Challenge.where("name ilike ?", str_to_search(params[:q])).
       order(created_at: :desc).paginate(:page => params[:page])
-    
 
   end
 
   def show
-    # TODO: Controlar cuando se pone en la url un id que no existe
-    @vote      = @challenge.votes.new
-    @num_votes = Vote.num_of_votes(params[:id])
+    if @challenge
+      @vote      = @challenge.votes.new
+      @num_votes = Vote.num_of_votes(params[:id])
+    else
+      redirect_to '/404'
+    end
   end
 
   def edit
@@ -71,7 +58,7 @@ class ChallengesController < ApplicationController
   private
 
   def load_challenge
-    @challenge = Challenge.find params[:id]
+    @challenge = Challenge.where(id: params[:id]).first
   end
 
   def challenge_params
