@@ -9,12 +9,14 @@
 
 <table>
   <tr>
+    <th></th>
     <th>Challenge name</th>
     <th>Date of creation</th>
   </tr>
 
   <% @challenges.each do |ch| %>
     <tr>
+      <td><%= image_tag ch.poster.url(:thumb) %></td>
       <td><%= link_to ch.name, challenge_path(ch) %></td>
       <td><%= ch.created_at %></td>
     </tr>
@@ -22,10 +24,4 @@
 
 </table>
 
-<% if previus_page? %>
-  <%= link_to('<Prev', challenges_path(page: @page - 1)) %>
-<% end %>
-
-<% if next_page? %>
-  <%= link_to('Next>', challenges_path(page: @page + 1)) %>
-<% end %>
+<%= will_paginate @challenges %>

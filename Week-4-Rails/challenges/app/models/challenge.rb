@@ -6,6 +6,8 @@ class Challenge < ActiveRecord::Base
 
   before_save :set_description_to_default_value
 
+  mount_uploader :poster, PosterUploader
+
 
 
   private
