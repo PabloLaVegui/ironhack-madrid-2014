@@ -1,9 +1,6 @@
 class ChallengesController < ApplicationController
-  # TODO: .gitignore (bd, gemas)
 
   before_filter :load_challenge, only: [:show, :update, :edit, :destroy]
-
-  PER_PAGE = 10
 
 
   def new
