@@ -73,5 +73,5 @@ $("label").has("input[name='color']").css('color', function() {
 // Add links to the li elements, the url is the name ended with .com
 $("li").html(function() {
   var currentText = $(this).text();
-  return "<a href='http://" + currentText + ".com'>" + currentText + "</a>"
+  return "<a href='http://" + currentText + ".com'>" + currentText + "</a>";
 });
