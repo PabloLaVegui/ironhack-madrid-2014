@@ -52,13 +52,13 @@ $("#jquery-ui").text($("#jquery-ui").text() + " (User interface)")
 $("#jquery-ui").after($("<li>Future JQ</li>"))
 
 // Add div containers with the class bordered around every li
-//$("li").wrap('<div class="bordered">')
+$("li").wrap('<div class="bordered">')
 
 // Add a div container with the class bordered around all li
 $("li").wrapAll('<div class="bordered">')
 
 // Remove the result div
-//$("#result").remove()
+$("#result").remove()
 
 
 /**
