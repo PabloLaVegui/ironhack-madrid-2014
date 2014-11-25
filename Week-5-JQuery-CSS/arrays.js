@@ -41,6 +41,8 @@ var defaultConfig = {left: 10, top: 20, rigth: 30, bottom: 40};
 
 var myFunction = function (config) {
   return $.extend(defaultConfig, config);
+  // defaultConfig no se modifica
+  //return $.extend({}, defaultConfig, config);
 };
 
 console.log(myFunction({left: 20, top: 30}));
