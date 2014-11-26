@@ -1,0 +1,131 @@
+body {
+    margin: 0px;
+}
+
+
+#exercices {
+    width: 800px;
+    background-color: grey;
+}
+
+#logo,
+#header {
+  height: 50px;
+  display: inline-block;
+}
+#logo {
+  background-color: yellow;
+  float: right;
+  width: 20%
+}
+#header {
+  background-color: aqua;
+  float: left;
+  width: 80%;
+  position: relative;
+}
+  #signin {
+    background-color: teal;
+    width: 70px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+
+#leftbar {
+  background-color: orange;
+  float: left;
+  width: 20%;
+  height: 470px;
+}
+
+#rightbar {
+  background-color: brown;
+  float: right;
+  width: 13%;
+  height: 455px;
+  border: 2px solid black;
+  margin: 5px;
+}
+
+#main {
+  background-color: black;
+  color: white;
+  float: left;
+  width: 65%;
+  position: relative;
+}
+
+  #column1 {
+    float: right;
+    width: 50%;
+    position: relative;
+  }
+
+    #content11{
+      background-color: green;
+      width: 100%;
+      height: 120px;
+    }
+    #content12,
+    #content13 {
+      display: inline-block;
+    }
+    #content12{
+      background-color: lime;
+      width: 50%;
+      float: left;
+      height: 115px;
+    }
+    #content13{
+      background-color: olive;
+      width: 50%;
+      height: 140px;
+    }
+    #content14{
+      background-color: orange;
+      width: 50%;
+      margin-top: -25px;
+      height: 180px;
+    }
+    #content15{
+      background-color: navy;
+      width: 50%;
+      float: right;
+      margin-top: -155px;
+      height: 210px;
+    }
+    #content16 {
+      background-color: red;
+      width: 50%;
+      height: 55px;
+    }
+
+  #column2 {
+    float: left;
+    width: 50%;
+    position: relative;
+  }
+
+    #content21,
+    #content22,
+    #content23 {
+      position: absolute;
+      width: 100%;
+    }
+    #content21 {
+      background-color: blue;
+      height: 130px;
+      top: 170px;
+    }
+    #content22 {
+      background-color: aqua;
+      height: 170px;
+      top: 300px;
+    }
+    #content23 {
+      background-color: silver;
+      height: 150px;
+      top: 20px;
+    }

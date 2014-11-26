@@ -1,0 +1,75 @@
+div {
+    margin: 5px;
+}
+#result {
+    float: left;
+    width: 450px;
+    margin-top: -15px;
+}
+#exercices {
+    float:left;
+    width: 400px;
+}
+
+#ex1 {
+  border: 3px solid red;
+  text-align: right;
+  font-weight: bold;
+}
+
+#ex2 {
+  border: 1px dashed black;
+  font-size: 1.5em;
+}
+
+#ex3 {
+  border: 3px dotted black;
+  font-style: italic;
+  border-radius: 20px;
+  padding: .3em .6em;
+}
+
+#ex4 {
+  color: blue;
+  border-left: 3px double green;
+  margin-left: 1.7em;
+  padding-left: .3em;
+}
+
+#ex5 {
+  border: 1px solid black;
+  padding: 1.2em;
+  text-decoration: underline;
+}
+
+#ex6 {
+  background-color: aqua;
+  margin: 1.5em 1.2em;
+  text-indent: 1.2em;
+}
+
+#ex7 {
+  width: 13em;
+  text-decoration: line-through;
+  text-align: justify;
+}
+
+#ex8 {
+  visibility: hidden;
+}
+
+#ex9 {
+  background-image: url('ironhack.png');
+  background-size: 100px;
+  background-color: grey;
+  background-position: right;
+  background-repeat: no-repeat;
+  padding-right: 100px;
+}
+
+#ex10 {
+  border: 1px solid black;
+  height: 6.1em;
+  overflow: hidden;
+}
+
