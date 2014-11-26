@@ -1,0 +1,118 @@
+/*********** reset ************/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+/************ tags ************/
+
+body {
+  font-family: arial;
+  background-color: #ddd;
+}
+
+header {
+  background-color: black;
+  color: #888888;
+  padding: 1em;
+}
+
+footer {
+  clear: both;
+  background-color: #222222;
+  color: #aaa;
+  text-align: center;
+  font-size: .8em;
+  padding: .4em 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+
+
+/************* class *********/
+
+.link {
+  cursor: pointer;
+  color: white;
+  background-color: grey;
+  width: 100px;
+  border: 1px dotted black;
+  padding: .4em;
+}
+.link:hover {
+  background-color: #aaaaaa;
+}
+
+
+
+/*************** id ************/
+
+#sidebar {
+  float: left;
+  margin: .6em;
+  font-size: 1.2em;
+}
+
+#compose {
+  background-color: black;
+  color: white;
+}
+#compose:hover {
+  background-color: white;
+  color: black;
+}
+
+#main {
+  float: left;
+  margin: 1em;
+  width: 75%;
+}
+
+#labels ul {
+  margin-bottom: .5em;
+}
+
+#emails {
+  color: white;
+  width: 100%;
+}
+  #emails li {
+    background-color: #015378;
+    border: 1px solid black;
+    margin-bottom: .4em;
+    padding: .7em;
+    font-size: 1.7em;
+  }
+
+#blank-email {
+  width: 450px;
+  height: 450px;
+  z-index: 100;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  background-color: white;
+  border: 3px solid grey;
+  border-radius: 25px;
+  padding: 2em;
+  color: grey;
+  font-size: 1.5em;
+  display: none;
+}
+  #blank-email input,
+  #blank-email textarea {
+    font-size: inherit;
+    margin: .2em;
+  }
+  #blank-email textarea {
+    width: 18em;
+    height: 8em;
+  }
+
