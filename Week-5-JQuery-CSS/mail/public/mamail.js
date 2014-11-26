@@ -20,13 +20,22 @@ var setEventHandlers = function() {
   $("#blank-close").click(function() {
     $("#blank-email").hide();
   });
+  $("#trash").click(function() {
+    $("#blank-email").hide();
+  });
 
-  $("#inbox").click(loadMails);
+  $("#inbox").click(function() {
+    $("#email-actions").show();
+    loadMails();
+  });
+
+  $("#send").click(sendEmail);
 
 }
 
 var loadMails = function() {
   $.ajax("/email", {
+    type: "get",
     datatype: "json",
     success: generateMailsList,
     error:   viewError
@@ -50,5 +59,15 @@ var generateMailsList = function(data) {
     mailHtml += "<div class='preview'><em>Preview: </em>" + mail['preview'] + "</div>";
     mailHtml += "</li>";
     $("#emails").append(mailHtml);
+  });
+}
+
+var sendEmail = function() {
+  $.ajax("/email", {
+    type: "post",
+  success: function() {
+    alert("Success!");
+  },
+    error: viewError
   });
 }

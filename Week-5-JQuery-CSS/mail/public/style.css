@@ -74,6 +74,13 @@ ul {
   margin: 1em;
   width: 75%;
 }
+  #email-actions {
+    display: none;
+  }
+    #email-actions li {
+      display: inline;
+      margin-bottom: 1em;
+    }
 
 #labels ul {
   margin-bottom: .5em;
@@ -86,6 +93,7 @@ ul {
   #emails li {
     background-color: #015378;
     border: 1px solid black;
+    margin-top: .4em;
     margin-bottom: .4em;
     padding: .7em;
     font-size: 1.7em;
@@ -93,7 +101,7 @@ ul {
 
 #blank-email {
   width: 450px;
-  height: 450px;
+  height: 490px;
   z-index: 100;
   position: absolute;
   top: 50px;
@@ -106,6 +114,11 @@ ul {
   font-size: 1.5em;
   display: none;
 }
+  #blank-close {
+    width: 1em;
+    text-align: center;
+    font-size: .6em;
+  }
   #blank-email input,
   #blank-email textarea {
     font-size: inherit;
@@ -114,5 +127,10 @@ ul {
   #blank-email textarea {
     width: 18em;
     height: 8em;
+  }
+  #blank-bottom div {
+    display: inline;
+    font-size: .6em;
+    margin: 1em;
   }
 
