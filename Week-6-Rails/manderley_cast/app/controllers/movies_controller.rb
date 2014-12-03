@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only: [:show, :edit, :update, :destroy, :new_cast, :create_cast]
+  before_action :set_movie, only: [:show, :edit, :update, :destroy, :new_cast, :create_cast, :up, :down]
 
   # GET /movies
   # GET /movies.json
@@ -97,6 +97,35 @@ class MoviesController < ApplicationController
       end
     end
   end
+
+  def up
+    #vote = Vote.user(current_user).movie(@movie).first
+    #unless vote
+      #vote = Vote.user(current_user).movie(@movie).build
+    #end
+    vote = Vote.user(current_user).movie(@movie).find_or_initialize_by({})
+
+    vote.liked
+
+    authorize vote, :save? # le estamos diciendo con que politica utorizar, por
+                           # defecto en la politica tendria que haber def up?
+    vote.save
+
+    redirect_to movie_path(@movie)
+  end
+
+  def down
+    vote = Vote.user(current_user).movie(@movie).find_or_initialize_by({})
+
+    vote.disliked
+
+    authorize vote, :save?
+    vote.save
+
+    redirect_to movie_path(@movie)
+  end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

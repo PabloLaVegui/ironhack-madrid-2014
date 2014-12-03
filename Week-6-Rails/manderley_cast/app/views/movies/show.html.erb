@@ -39,6 +39,18 @@
   <% end %>
 </p>
 
+<% if policy(Vote.user(current_user).movie(@movie).find_or_initialize_by({})).save? %>
+  <div id="voting_system">
+    <%= link_to "I like it!", movie_thumbs_up_path(@movie) %>
+    <%= link_to "I didnt like it!", movie_thumbs_down_path(@movie) %>
+  </div>
+<% end %>
+
+<% if @movie.votes.present? %>
+  <div id="votes">
+    <%= @movie.likes.size %> out of <%= @movie.votes.size %> people like this
+  </div>
+<% end %>
 
 <h4>Comments</h4>
 <%= render @movie.comments %>

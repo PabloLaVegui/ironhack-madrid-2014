@@ -2,6 +2,10 @@ Manderley::Application.routes.draw do
   devise_for :users
   resources :movies do
     resources :comments, shallow: true
+
+    get 'up', to: 'movies#up', as: :thumbs_up
+    get 'down', to: 'movies#down', as: :thumbs_down
+
     get "cast/new", to: 'movies#new_cast', as: :new_cast
     post "cast", to: 'movies#create_cast', as: :create_cast
   end

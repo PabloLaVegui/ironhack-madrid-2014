@@ -8,5 +8,6 @@ class CreateVotes < ActiveRecord::Migration
       t.timestamps
     end
     add_index :votes, :points
+    add_index :votes, [:movie_id, :user_id], unique: true
   end
 end
