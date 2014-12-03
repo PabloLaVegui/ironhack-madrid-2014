@@ -1,0 +1,14 @@
+<%= @person.first_name %>
+
+<% if policy(Oldvote.user(current_user).find_or_initialize_by({})).save? %>
+
+  <div id="voting_system">
+    <%= link_to "Old!", person_thumbs_old_up_path(@person) %>
+    <%= link_to "Not old!", person_thumbs_old_down_path(@person) %>
+  </div>
+
+<% end %>
+
+<div id="votes">
+  <%= @person.old.size %> out of <%= @person.oldvotes.size %> people like this
+</div>

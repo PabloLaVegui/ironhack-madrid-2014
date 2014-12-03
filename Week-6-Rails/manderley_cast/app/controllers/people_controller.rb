@@ -29,7 +29,7 @@ class PeopleController < ApplicationController
 
   def destroy
     @person.destroy
-    
+
     respond_to do |format|
       format.html { redirect_to movie }
       format.json { head :no_content }
@@ -42,13 +42,36 @@ class PeopleController < ApplicationController
   def update
   end
 
+  def up
+    oldVote = Oldvote.user(current_user).movie(@movie).cast.find_or_initialize_by({})
+
+    oldVote.old
+
+    authorize oldVote, :save?
+    oldVote.save
+
+    rediret_to person_path(@person)
+  end
+
+  def down
+    oldVote = Oldvote.user(current_user).movie(@movie).cast.find_or_initialize_by({})
+
+    oldVote.notOld
+
+    authorize oldVote, :save?
+    oldVote.save
+
+    rediret_to person_path(@person)
+  end
+
+
 
     private
   # Use callbacks to share common setup or constraints between actions.
   def set_person
     @person = Person.find(params[:id])
   end
- 
+
   # Never trust parameters from the scary internet, only allow the white list through.
   def person_params
     params.require(:person).permit(:first_name, :last_name)
