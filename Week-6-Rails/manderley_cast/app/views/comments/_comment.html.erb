@@ -1,0 +1,17 @@
+  <p>
+    <strong>Author:</strong>
+    <div class="user <%= comment.user.role %>">
+      <%= author_display_name comment %>
+    </div>
+  </p>
+ 
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+
+  <div class="actions">
+    <% if policy(comment).update? %>
+      <%= link_to 'Edit', edit_comment_path(comment) %>
+    <% end %>
+  </div>

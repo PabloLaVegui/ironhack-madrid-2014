@@ -1,0 +1,14 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+.user.admin::before {
+  content: "★";
+}
+
+.user.yoda {
+  background: image-url('yoda-icon.gif') no-repeat 87px 0px;
+  height: 35px;
+  padding-top: 10px;
+}
