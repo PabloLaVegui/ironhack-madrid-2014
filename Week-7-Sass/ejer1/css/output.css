@@ -1,0 +1,41 @@
+.status {
+  overflow: hidden;
+  _overflow: visible;
+  zoom: 1;
+  margin: 10px; }
+  .status .img {
+    float: left;
+    margin-right: 10px; }
+    .status .img img {
+      display: block; }
+  .status .imgExt {
+    float: right;
+    margin-left: 10px; }
+    .status .imgExt img {
+      display: block; }
+  .status .bd {
+    overflow: hidden;
+    _overflow: visible;
+    zoom: 1; }
+
+.comment {
+  overflow: hidden;
+  _overflow: visible;
+  zoom: 1;
+  margin: 10px; }
+  .comment .img {
+    float: left;
+    margin-right: 10px; }
+    .comment .img img {
+      display: block; }
+  .comment .imgExt {
+    float: right;
+    margin-left: 10px; }
+    .comment .imgExt img {
+      display: block; }
+  .comment .bd {
+    overflow: hidden;
+    _overflow: visible;
+    zoom: 1; }
+
+/*# sourceMappingURL=output.css.map */
